@@ -658,6 +658,20 @@ int main()
     // cout << *q << endl; //* Value of a = 20
     // cout << a << endl;  //* Value of a = 20
     // cout << &a << endl; //* Address of a = 0x16d5973ac
+
+    //! Arthimetic Note:
+    int i = 10;
+    int *p = &i;
+    // *p++;    ----->  Error
+    (*p)++;
+    cout << *p << endl; //* 11
+    cout << i << endl;  //* 11
+    cout << p << endl;  //* 0x16ef2b3ac
+
+    //* Increasing the pointer
+    p = p + 1;
+    cout << p << endl;  //* 0x16ef2b3b0: Here adding 1 means 4 byte add to previous address.
+    cout << *p << endl; //* Garbage value
 }
 
 //* -------------------------------------------------------------------------------------------------
