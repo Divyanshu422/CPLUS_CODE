@@ -607,263 +607,849 @@
 //* -------------------------------------------------------------------------------------------------
 
 //! Love babbar -> lecture Pointer 25
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int main()
-{
-    //*pointer to int is created, and pointing to some garbage address -->> int *p;
-    // int *p = 0;         //* Pointer pointing to zero -> acceptable
+// int main()
+// {
+//*pointer to int is created, and pointing to some garbage address -->> int *p;
+// int *p = 0;         //* Pointer pointing to zero -> acceptable
 
-    // cout << *p << endl;     //* o/p: segmentation fault. it means that there is no such pointer exist
-    // return 0;
+// cout << *p << endl;     //* o/p: segmentation fault. it means that there is no such pointer exist
+// return 0;
 
-    // int i = 10;
-    // int *p = 0;
-    // p = &i;                          //* Note: *p = &i, this is wrong and p = &i -->> this is right
-    // cout << p << endl;              //* 0x16d8c33ac
-    // cout << *p << endl;             //* 10
+// int i = 10;
+// int *p = 0;
+// p = &i;                          //* Note: *p = &i, this is wrong and p = &i -->> this is right
+// cout << p << endl;              //* 0x16d8c33ac
+// cout << *p << endl;             //* 10
 
-    // int *q = &i;
-    // cout << q << endl;              //* 0x16d8c33ac
-    // cout << *q << endl;             //* 10
+// int *q = &i;
+// cout << q << endl;              //* 0x16d8c33ac
+// cout << *q << endl;             //* 10
 
-    //! Changing the value of variable using pointer?
-    // int a = 10;
-    // int *p = &a;
-    // *p = (*p + 10);
-    // cout << *p << endl; //* 20
-    // cout << a << endl;  //* 20
+//! Changing the value of variable using pointer?
+// int a = 10;
+// int *p = &a;
+// *p = (*p + 10);
+// cout << *p << endl; //* 20
+// cout << a << endl;  //* 20
 
-    // (*p)++;
-    // cout << *p << endl; //* 21
-    // cout << a << endl;  //* 21
+// (*p)++;
+// cout << *p << endl; //* 21
+// cout << a << endl;  //* 21
 
-    //! Copying a pointer
-    // int a = 10;
-    // int *p = &a;
+//! Copying a pointer
+// int a = 10;
+// int *p = &a;
 
-    // //* Copying a pointer
-    // int *q = p;
-    // cout << p << endl;  //* Address of a = 0x16d5973ac
-    // cout << *p << endl; //* Value of a = 10
-    // cout << q << endl;  //* Address of a = 0x16d5973ac
-    // cout << *q << endl; //* Value of a = 10
+// //* Copying a pointer
+// int *q = p;
+// cout << p << endl;  //* Address of a = 0x16d5973ac
+// cout << *p << endl; //* Value of a = 10
+// cout << q << endl;  //* Address of a = 0x16d5973ac
+// cout << *q << endl; //* Value of a = 10
 
-    // //* ------------------- Modfying the value -------------------------------
-    // *p = (*p + 10);
-    // cout << p << endl;  //* Address of a = 0x16d5973ac
-    // cout << *p << endl; //* Value of a = 20
-    // cout << q << endl;  //* Address of a = 0x16d5973ac
-    // cout << *q << endl; //* Value of a = 20
-    // cout << a << endl;  //* Value of a = 20
-    // cout << &a << endl; //* Address of a = 0x16d5973ac
+// //* ------------------- Modfying the value -------------------------------
+// *p = (*p + 10);
+// cout << p << endl;  //* Address of a = 0x16d5973ac
+// cout << *p << endl; //* Value of a = 20
+// cout << q << endl;  //* Address of a = 0x16d5973ac
+// cout << *q << endl; //* Value of a = 20
+// cout << a << endl;  //* Value of a = 20
+// cout << &a << endl; //* Address of a = 0x16d5973ac
 
-    //! Arthimetic Note:
-    int i = 10;
-    int *p = &i;
-    // *p++;    ----->  Error
-    (*p)++;
-    cout << *p << endl; //* 11
-    cout << i << endl;  //* 11
-    cout << p << endl;  //* 0x16ef2b3ac
+//! Arthimetic Note:
+// int i = 10;
+// int *p = &i;
+//*  *p++;    ----->  Error
+// (*p)++;
+// cout << *p << endl; //* 11
+// cout << i << endl;  //* 11
+// cout << p << endl;  //* 0x16ef2b3ac
 
-    //* Increasing the pointer
-    p = p + 1;
-    cout << p << endl;  //* 0x16ef2b3b0: Here adding 1 means 4 byte add to previous address.
-    cout << *p << endl; //* Garbage value
+// //* Increasing the pointer
+// p = p + 1;
+// cout << p << endl; //* 0x16ef2b3b0: Here adding 1 means 4 byte add to previous address.
+// cout << *p << endl; //* Garbage value
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Creating class and object
+// #include <iostream>
+// using namespace std;
+
+// // Creating the class -> Hero with health as a property
+//     class Hero {
+//         // Property
+//         int Health;
+
+//     public:
+//         // Constructor to initialize Health
+//         Hero() {
+//             Health = 0; // You can set an initial value here if needed
+//         }
+
+//         // Getter function to retrieve the Health value
+//         int getHealth() {
+//             return Health;
+//         }
+
+//         // Setter function to set the Health value
+//         void setHealth(int newHealth) {
+//             Health = newHealth;
+//         }
+//     };
+
+//     int main() {
+//         // Creating an object of the class
+//         Hero Obj1;
+
+//         // Accessing the property using setter
+//         Obj1.setHealth(80); // Setting the initial value for health
+
+//         // Accessing the property using getter and printing the value of health
+//         cout << "Health: " << Obj1.getHealth() << endl;             //* Health: 80
+
+//         // Printing the size of the object
+//         cout << "Size of Obj1: " << sizeof(Obj1) << " bytes" << endl; //* Size of Obj1: 4 bytes
+
+//         return 0;
+//     }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Empty class -> Object size is not  zero rather 1 in C++
+// #include<iostream>
+// using namespace std;
+
+// //* Creating the class -> Hero with health as a property
+// class Hero
+// {
+//     //* Empty class
+// };
+
+// int main()
+// {
+//     //* Creating an object of the class
+//     Hero Obj1;
+
+//     //* Printing the size of the object
+//     cout << "Size of Obj1: " << sizeof(Obj1) << " bytes" << endl; //* Size of Obj1: 1 bytes
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Importing Class -> Hero.cpp
+// #include<iostream>
+// #include "Hero.cpp" //* Including the Hero class
+// using namespace std;
+
+// int main()
+// {
+//     //* Creating an object of the class
+//     Hero Obj1;
+
+//     //* Printing the size of the object
+//     cout << "Size of Obj1: " << sizeof(Obj1) << " bytes" << endl; //* Size of Obj1: 8 bytes
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Importing String in C++ Program
+// #include <iostream>
+// #include <string>
+
+// int main() {
+//     std::string myString = "Hello, World!";
+
+//     std::cout << myString << std::endl;
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Access modifier -> Private vs Public
+// #include <iostream>
+// using namespace std;
+
+// class LoveBabbar
+// {
+//     int RollNo;
+
+// public:
+//     int marks;
+// };
+// int main()
+// {
+
+//     //* Creating the object
+//     LoveBabbar obj;
+//     //* Accessing the field variable using dot operator
+//     cout << obj.marks << endl;  //* Garbage value
+//     cout << obj.RollNo << endl; //! Error becoz the RollNo is bydefault private
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Getter and Setter in C++
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// class MyClass
+// {
+// private:
+//     int myValue; //* Private data member
+
+//     //? Access modifier -> Public
+// public:
+//     //* Getter method to retrieve the value
+//     int getMyValue() const
+//     { //! Need to use get keyword
+//         return myValue;
+//     }
+
+//     //* Setter method to set the value
+//     void setMyValue(int newValue)
+//     { //! Need to use set keyword
+//         //* You can add validation or business logic here
+//         myValue = newValue;
+//     }
+// };
+
+// int main()
+// {
+
+//     //* Creating the object
+//     MyClass obj1;
+//     obj1.setMyValue(5); //* Calling setter function
+//     int value = obj1.getMyValue();
+//     cout << value << endl;              //* 5
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Why the size of object is 8 not 5 -> Padding and greedy alignment
+// #include <iostream>
+// using namespace std;
+
+// class MyClass
+// {
+// public:
+//     int myvalue;
+//     char marks;
+// };
+
+// int main()
+// {
+//     //* Creating the object
+//     MyClass obj1;
+//     cout << "Size of the obj1 of Myclass is " << sizeof(obj1) << endl; //* Size of the obj1 of Myclass is 8
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Dynamic allocation of variable
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int *dynamicInt = new int; //* Dynamic allocation of an integer on the heap
+//     *dynamicInt = 5;           //* Assign a value to the dynamically allocated integer
+
+//     cout << *dynamicInt;            //* 5
+//     //* Release the dynamically allocated memory to prevent memory leaks
+
+//     delete dynamicInt;
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Dynamically allocating the object
+// #include <iostream>
+// using namespace std;
+
+// class LoveBabbar
+// {
+// public:
+//     int RollNo;
+// };
+
+// int main()
+// {
+//     //* Creating the object dynamically
+//     LoveBabbar *obj = new LoveBabbar;
+//     (*obj).RollNo = 10;    //* Access and assign a value to RollNo using (*obj)
+//     cout << (*obj).RollNo; //* Output RollNo without the extra closing parenthesis.
+//     //? output is 10.
+
+//     //* Don't forget to delete dynamically allocated memory
+//     delete obj;
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Dereferencing Meaning -> accessing the value using Pointer
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int number = 42;            //* Create an integer variable
+//     int *pointer = &number;     //* Create a pointer that stores the address of 'number'
+
+//     //* Dereference the pointer to access the value it points to
+//     int value = *pointer;       //* 'value' now contains 42
+//     cout << "The value of 'number' is: " << (*pointer)<<endl;      //*  The value of 'number' is: 42
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+// //! Using dot operator and arrow symbol to access the value.
+// #include <iostream>
+// using namespace std;
+
+// class LoveBabbar
+// {
+// public:
+//     int RollNo;
+// };
+
+// int main()
+// {
+//     //* Creating the object dynamically
+//     LoveBabbar *obj = new LoveBabbar;
+//     (*obj).RollNo = 10;            //* Access and assign a value to RollNo using (*obj)
+//     cout << (*obj).RollNo << endl; //* Output RollNo without the extra closing parenthesis.
+//     //? output is 10.
+
+//     cout << "the output is " << obj->RollNo << endl; //?   //? output is 10.
+
+//     //* Don't forget to delete dynamically allocated memory
+//     delete obj;
+
+//     return 0;
+// }
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Default constructor -> automatically get called
+// #include <iostream>
+// using namespace std;
+
+// class abc
+// {
+// public:
+//     int a;
+//     abc()
+//     { //* Defining the constructor -> No return type, same name, No usage of void
+//         cout << "Constructor is called" << endl;
+//     }
+// };
+
+// int main()
+// {
+//     // Todo: Creating the object
+//     // Todo: Statically creating object
+//     abc objS;   //? Output: Constructor is called
+
+//     // Todo: Dynamically creating object
+//     abc *objD = new abc;            //? Output: Constructor is called
+
+//     //? Output: Constructor is called
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Parameterised constructor
+// #include <iostream>
+// using namespace std;
+
+// class Hello
+// {
+//     int a;
+
+// public:
+//     Hello(int a)
+//     {
+//         this->a = a; //* Corrected syntax: use -> instead of .
+//         cout << "The value of field object is " << this->a;
+//     }
+// };
+// int main()
+// {
+//     Hello obj(10);      //* The value of field object is 10
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! this stores the address of the current object
+// #include <iostream>
+// using namespace std;
+
+// class Hello
+// {
+//     int a;
+
+// public:
+//     Hello(int a)
+//     {
+//         this->a = a; //* Corrected syntax: use -> instead of .
+//         cout << "the address of the current object is -> " << this << endl;
+
+//                 //TODO: Output the address of the current object is -> 0x16b50b468
+//     }
+// };
+// int main()
+// {
+//     Hello obj(10); //* The value of field object is 10
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Default constructor -> No longer exist, if user defined the constructor
+// #include <iostream>
+// using namespace std;
+
+// class Hello
+// {
+//     int a;
+
+// public:
+//     Hello(int a) //* Parameterised constuctor
+//     {
+//         this->a = a; //* Corrected syntax: use -> instead of .
+//     }
+// };
+// int main()
+// {
+//     Hello obj();    //! Error: empty parentheses interpreted as a function declaration.
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Constructor -> Saurab Shukla
+// #include <iostream>
+// using namespace std;
+
+// class complex
+// {
+// private:
+//     int a, b;
+
+// public:
+//     //* Creating a constructor
+//     complex()
+//     {
+//         cout << "Constructor called";
+//     }
+// };
+
+// int main()
+// {
+//     //* Creating object
+//     complex cpxObj, cpxobj2, cpxobj3; //* Constructor called Constructor called Constructor called
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Ways to write the constructor
+
+// #include <iostream>
+// using namespace std;
+// class constructorType
+// {
+//     int a;
+
+// public:
+//     constructorType()
+//     {
+//         cout << "Parameterless constructor called";
+//     }
+//     constructorType(int a)
+//     {
+//         this->a = a;
+//         cout << "Parameterised constructor called";
+//     }
+// };
+
+// int main()
+// {
+//     constructorType a = constructorType(); //* Parameterless constructor called
+//     cout << endl;
+//     constructorType b = constructorType(2);     //* Parameterised constructor called
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Copy constructor -> Default created by compiler
+// #include <iostream>
+// using namespace std;
+// class Hello
+// {
+// public:
+//     int marks;
+//     int rank;
+
+//     Hello(int marks, int rank) //* Parameterised constuctor
+//     {
+//         this->marks = marks;
+//         this->rank = rank;
+//     }
+// };
+
+// int main()
+// {
+//     Hello obj1(150, 20);
+
+//     //* 1st way to copy the object to another object
+//     Hello obj2(obj1);           //! --> the copy constructor is by default created by C++ complier
+
+//     //* 2nd way to copy the object to another object
+//     Hello obj3 = obj1;          //! --> the copy constructor is by default created by C++ complier
+//     cout << obj2.marks << endl; //* 150
+
+//     cout << obj2.rank << endl; //* 20
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Copy constructor -> Using pass by reference
+// #include <iostream>
+// using namespace std;
+// class Hello
+// {
+// public:
+//     int marks;
+//     int rank;
+
+//     Hello(int marks, int rank) //* Parameterised constuctor
+//     {
+//         this->marks = marks;
+//         this->rank = rank;
+//     }
+//     //! Copy constructor -> using Pass by reference
+//     Hello(Hello &obj)
+//     {
+
+//         this->marks = obj.marks;
+//         this->rank = obj.rank;
+//         cout << "Copy constructor is called" << endl;
+//     }
+// };
+
+// int main()
+// {
+//     Hello obj1(100, 10);
+//     Hello obj2(obj1);
+//     Hello obj3 = obj1;
+//     cout << "Printing the value of Object 2 marks and rank " << obj2.marks << " " << obj2.rank << endl;
+//     cout << "Printing the value of Object 3 marks and rank " << obj3.marks << " " << obj3.rank << endl;
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//! Copy constructor -> Created by User
+// #include <iostream>
+// using namespace std;
+
+// class UserDefinedCopyConstructor
+// {
+// public:
+//     int a;
+//     int b;
+
+//     UserDefinedCopyConstructor(int a, int b) //* Parameterised constuctor
+//     {
+//         this->a = a;
+//         this->b = b;
+//     }
+//     //? Creating a copy constructor -> which takes input as object of UserDefinedCopyConstructor class
+//     //* we created a copy constructor in which we take parameter as object. But we know that when an object is create the constructor is called -> hence again a copy constructor is called. To overcome this loop -->> we can pass object by reference.
+//     UserDefinedCopyConstructor(UserDefinedCopyConstructor &obj)
+//     {
+//         this->a = obj.a;
+//         this->b = obj.b;
+//     }
+// };
+// int main()
+// {
+//     UserDefinedCopyConstructor obj1(20, 10);
+//     UserDefinedCopyConstructor obj2 = obj1;
+//     obj2.a = 50;
+//     cout << "The value of Obj2 is " << obj2.a << " & " << obj2.b << endl;
+//     //* output::  The value of Obj2 is 20 & 10
+//     cout << "The value of Obj2 is " << obj1.a << " & " << obj1.b;
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+// //!  Shallow copy
+// #include <iostream>
+// using namespace std;
+// class CDAC
+// {
+// public:
+//     int a;
+//     CDAC(int a)
+//     {
+//         this->a = a;
+//     }
+// };
+
+// int main()
+// {
+//     CDAC obj1(10);
+//     CDAC obj2(obj1);        //* Copying the value of a from obj1 to obj2.
+//                             //* This is example of shallow copy.
+//     obj2.a = 50;
+//     cout << obj1.a << endl;     //* 10
+//     cout << obj2.a << endl;     //* 50
+
+//     //* the change in the value of obj2.a is not reflected in the obj1.a -> becoz it is passed as value. if the variable a is reference type (Pointer) then both the object -> obj1 and obj2 will point to same variable. hence change in the value of one object will be reflected in the other object
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!  Shallow copy
+// #include <iostream>
+// using namespace std;
+// class CDAC
+// {
+// public:
+//     int a;
+//     int b;
+//     int *p;
+
+//     //* Creating a constructor to initialise the value of b
+//     CDAC()
+//     {
+//         p = new int; //* Defining the pointer p -> points to int type variable
+//     }
+
+//     void setData(int a, int b, int z)
+//     {
+//         this->a = a;
+//         this->b = b;
+//         *p = z; //* Assigning value of z in p
+//     }
+//     //! Copy constructor
+//     CDAC(CDAC & obj)
+//     {
+//         this->a = obj.a;
+//         this->b = obj.b;
+//         p = obj.p; //* Assigning value of z in p
+//     }
+// };
+
+// int main()
+// {
+//     CDAC obj1;
+//     obj1.setData(3, 4, 5);
+//     CDAC obj2 = obj1;
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+ //! Deep Copy
+
+// #include <iostream>
+// using namespace std;
+// class CDAC
+// {
+// public:
+//     int a;
+//     int b;
+//     int *p;
+
+//     //* Creating a constructor to initialise the value of b
+//     CDAC()
+//     {
+//         p = new int; //* Defining the pointer p -> points to int type variable
+//     }
+
+//     void setData(int a, int b, int z)
+//     {
+//         this->a = a;
+//         this->b = b;
+//         *p = z; //* Assigning value of z in p
+//     }
+//     //! Copy constructor
+//     CDAC(CDAC &obj)
+//     {
+//         this->a = obj.a;
+//         this->b = obj.b;
+//         p = new int;   //* Creating a new memory allocation for Pointer
+//         *p = *(obj.p);  //* Assigning the value
+//     }
+// };
+
+// int main()
+// {
+//     CDAC obj1;
+//     obj1.setData(3, 4, 5);
+//     CDAC obj2 = obj1;
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// 
+
 }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
