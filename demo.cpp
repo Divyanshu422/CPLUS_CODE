@@ -1315,7 +1315,7 @@
 
 //* -------------------------------------------------------------------------------------------------
 
- //! Deep Copy
+//! Deep Copy
 
 // #include <iostream>
 // using namespace std;
@@ -1358,98 +1358,122 @@
 
 //* -------------------------------------------------------------------------------------------------
 
-//!
-// #include <iostream>
-// using namespace std;
+//! Destructor:
+#include <iostream>
+using namespace std;
+//* Creating a class:
+class Destructor
+{
+    int a;
 
-// int main()
-// {
+public:
+    Destructor()
+    {
+        cout << "Constructor called" << endl;
+    }
+    ~Destructor()
+    {
+        cout << "Destructor called" << endl;
+    }
+};
 
-//     return 0;
-// }
+//! Creating a function
+void fun()
+{
+    Destructor obj; //* Creating a object and Constructor will be called.
 
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// }
-
-//* -------------------------------------------------------------------------------------------------
-
-//!
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-
-//     return 0;
-// 
-
+    // Todo: Once the fun() method is done the destructor function will be called automatically on the object of destructor class
 }
+
+int main()
+{
+    //* Calling the function and when function is exectuded the destructor will be called automatically
+    fun();
+    return 0;
+}
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+//* -------------------------------------------------------------------------------------------------
+
+//!
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+
+//     return 0;
+//
+
+//}
